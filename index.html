@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman Gupta | Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for 'Inter' -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom CSS for the night sky effect */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark charcoal background */
+            color: #e2e8f0; /* Off-white text */
+            /* Starry background effect using multiple gradients */
+            background-image:
+                radial-gradient(2px 2px at 20px 30px, #fff, rgba(255, 255, 255, 0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(255, 255, 255, 0)),
+                radial-gradient(2px 2px at 70px 40px, #fff, rgba(255, 255, 255, 0)),
+                radial-gradient(2px 2px at 100px 100px, #fff, rgba(255, 255, 255, 0)),
+                radial-gradient(2px 2px at 120px 80px, #fff, rgba(255, 255, 255, 0)),
+                radial-gradient(2px 2px at 150px 10px, #fff, rgba(255, 255, 255, 0)),
+                radial-gradient(2px 2px at 170px 50px, #fff, rgba(255, 255, 255, 0)),
+                radial-gradient(2px 2px at 190px 20px, #fff, rgba(255, 255, 255, 0)),
+                radial-gradient(1px 1px at 20px 120px, #fff, rgba(255, 255, 255, 0)),
+                radial-gradient(1px 1px at 140px 160px, #fff, rgba(255, 255, 255, 0)),
+                radial-gradient(1px 1px at 180px 180px, #fff, rgba(255, 255, 255, 0));
+            background-size: 200px 200px;
+            animation: move-stars 100s linear infinite;
+        }
+
+        /* Animation for the star background */
+        @keyframes move-stars {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -200px -200px;
+            }
+        }
+
+        /* Smooth fade-in animation for content */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a202c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #4a5568;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #6a7488;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+
+    <!-- Header and Navigation Bar -->
+    <header class="bg-gray-900/50 backdrop-blur-sm fixed w-full z-50 transition-colors duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Site Logo/Name -->
+            <a href="#" class="text-2xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 flex items-center">
+                <!-- Inline SVG for the logo -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-2 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.162a4.996 4.996 0 00-7.25-1.954l-4 4a4.996 4.996 0 00-1.954 7.25m8.22-3.111a4.996 4.996 0 00-7.25-1.954l-4 4a4.996 4.996 0 00-1.954 7.25M17.75 12l-2-2 4-4m-12.25 4l2-2 4-4"/>
+                </svg>
+                Aman Gupta
+            </a>
+            <!-- Navigation Links -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About</a>
+                <a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
+                <a href="#certifications" class="text-gray-300 hover:text-white transition-colors duration-300">Certifications</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/80 backdrop-blur-md">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+                <a href="#certifications" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Certifications</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section id="hero" class="h-screen flex items-center justify-center text-center fade-in">
+            <div class="max-w-4xl mx-auto px-4">
+                <!-- Profile Image -->
+                <img src="images/profile.jpg" alt="Aman Gupta" class="w-72 h-72 rounded-full mx-auto mb-4 border-4 border-blue-400 shadow-xl object-cover">
+                
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight text-white animate-pulse-slow">
+                    Aman Gupta
+                </h1>
+                <p class="mt-4 text-2xl md:text-3xl text-gray-300 font-light">
+                    Full-Stack Developer & AI/ML Enthusiast
+                </p>
+                <p class="mt-8 text-lg text-gray-400 max-w-2xl mx-auto">
+                    A dedicated and results-oriented professional with a strong foundation in building efficient, scalable, and user-centric applications.
+                </p>
+                <div class="mt-10">
+                    <a href="#projects" class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 hover:bg-blue-700">
+                        View My Work
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 px-4 md:px-12 fade-in">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">About Me</h2>
+                <div class="bg-gray-800/50 backdrop-blur-sm p-8 md:p-12 rounded-2xl shadow-xl border border-gray-700/50 transition-transform duration-500 hover:scale-[1.01]">
+                    <p class="text-lg leading-relaxed text-gray-300 mb-6">
+                        Hi, I’m Aman Gupta 👋<br>
+                        A passionate Full-Stack Developer & AI/ML Enthusiast who loves building modern, scalable, and intelligent web solutions. I combine my skills in web development with my growing knowledge of AI/ML to create websites and applications that are not only functional but also innovative and future-ready.<br><br>
+
+                        💡 What I Work On:<br>
+
+                        Web Development: Responsive business websites, eCommerce platforms, and portfolio sites<br>
+
+                        Full-Stack Projects: React.js, Node.js, Express.js, MongoDB<br>
+
+                        AI/ML Integration: Chatbots, computer vision experiments, and intelligent features<br>
+
+                        AR/VR in Web: Interactive 3D models & virtual try-on systems<br><br> 
+
+                        🌟 Highlights of My Work:<br>
+
+                        Developed a 3D model-based eCommerce website with AR try-on features (Hackathon project)<br>
+
+                        Built an AI-powered disease detection chatbot prototype<br>
+
+                        Created responsive portfolio & business websites for different use-cases<br>
+
+                        Experimented with AI + Web apps to merge innovation with functionality<br><br>
+
+                        ⚡ Tech Stack:<br>
+                        
+                        Frontend: HTML, CSS, JavaScript, React, Tailwind CSS<br>
+
+                        Backend: Node.js, Express.js, MongoDB<br>
+
+                        Other Tools: WordPress, Shopify, Git/GitHub, APIs<br>
+
+                        Special Interests: AI/ML, AR/VR for web<br><br>
+
+                        🚀 My vision is to bridge the gap between web development and artificial intelligence — creating digital solutions that not only look good but also think smarter.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-300">
+                        My approach to development is rooted in a collaborative and problem-solving mindset. I thrive on challenges that require innovative thinking and am dedicated to delivering solutions that not only meet but exceed expectations.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-4 md:px-12 fade-in">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">Featured Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Project Card: MindOS (Primary) -->
+                <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-700/50 transform transition-transform duration-500 hover:scale-[1.02]">
+                    <h3 class="text-2xl font-semibold mb-2 text-white">MindOS</h3>
+                    <p class="text-gray-400 mb-4">An adaptive AR/VR e-commerce platform offering intelligent shopping experiences with advanced analytics and comprehensive admin controls.</p>
+                    <ul class="text-gray-500 text-sm mb-4">
+                    <li><strong>Tech:</strong> HTML5, CSS3, JavaScript, Node.js, Express.js, MongoDB, Tailwind CSS</li>
+                    </ul>
+                    <a href="https://github.com/AmanGpt2005/MindOS" target="_blank" class="inline-block text-blue-400 hover:text-blue-500 transition-colors duration-300 font-medium">
+                    View on GitHub &rarr;
+                    </a>
+                </div>
+
+                <!-- Project Card: Resume Builder -->
+                <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-700/50 transform transition-transform duration-500 hover:scale-[1.02]">
+                    <h3 class="text-2xl font-semibold mb-2 text-white">Resume Builder</h3>
+                    <p class="text-gray-400 mb-4">A simple and effective HTML-based tool to design and generate professional resumes.</p>
+                    <ul class="text-gray-500 text-sm mb-4">
+                    <li><strong>Tech:</strong> HTML, CSS</li>
+                    </ul>
+                    <a href="https://github.com/AmanGpt2005/resumebuilder" target="_blank" class="inline-block text-blue-400 hover:text-blue-500 transition-colors duration-300 font-medium">
+                    View on GitHub &rarr;
+                    </a>
+                </div>
+
+                <!-- Project Card: Jovian Careers Website -->
+                <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-700/50 transform transition-transform duration-500 hover:scale-[1.02]">
+                    <h3 class="text-2xl font-semibold mb-2 text-white">Jovian Careers Website</h3>
+                    <p class="text-gray-400 mb-4">A career-themed website template developed for Jovian’s career portal.</p>
+                    <ul class="text-gray-500 text-sm mb-4">
+                    <li><strong>Tech:</strong> HTML, CSS</li>
+                    </ul>
+                    <a href="https://github.com/AmanGpt2005/jovian-careers-website" target="_blank" class="inline-block text-blue-400 hover:text-blue-500 transition-colors duration-300 font-medium">
+                    View on GitHub &rarr;
+                    </a>
+                </div>
+
+                </div>
+            </div>
+            </section>
+
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-20 px-4 md:px-12 fade-in">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl font-bold text-center text-blue-400 mb-12">Certifications & Accomplishments</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Certification Card 1 -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-700/50 transform transition-transform duration-500 hover:scale-[1.02]">
+                        <h3 class="text-2xl font-semibold mb-2 text-white">Google IT Automation</h3>
+                        <p class="text-gray-400 mb-4">Professional Certificate issued by Google.</p>
+                        <div class="text-sm text-gray-500">
+                            Covers Python, Git, and IT automation concepts.
+                        </div>
+                    </div>
+                    <!-- Certification Card 2 -->
+                    <div class="bg-gray-800/50 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-gray-700/50 transform transition-transform duration-500 hover:scale-[1.02]">
+                        <h3 class="text-2xl font-semibold mb-2 text-white">TensorFlow Developer</h3>
+                        <p class="text-gray-400 mb-4">A certification validating proficiency in TensorFlow and machine learning.</p>
+                        <div class="text-sm text-gray-500">
+                            Issued by Google, demonstrates expertise in AI/ML development.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer and Contact Section -->
+    <footer id="contact" class="bg-gray-900/50 backdrop-blur-sm py-12 px-4 md:px-12 mt-20">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl font-bold text-blue-400 mb-6">Connect with Me</h2>
+            <div class="flex justify-center space-x-6">
+                <!-- LinkedIn Icon -->
+                <a href="https://www.linkedin.com/in/aman-gupta-625b52296/" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.766s.784-1.75 1.75-1.75 1.75.79 1.75 1.766-.783 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.761 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <!-- GitHub Icon -->
+                <a href="https://github.com/AmanGpt2005" target="_blank" class="text-gray-300 hover:text-purple-400 transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.305 3.493.998.108-.77.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.465-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.004-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.197-6.095 8.197-11.389 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="mt-8 text-gray-500 text-sm">&copy; 2024 Aman Gupta. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and Smooth Scrolling -->
+    <script>
+        // Mobile Menu Toggler
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                // Only scroll if the href is not just '#'
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu after clicking a link
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
